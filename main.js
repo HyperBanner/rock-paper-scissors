@@ -8,3 +8,21 @@ function getComputerChoice() {
     return "Scissors";
   }
 }
+
+function getHumanChoice() {
+  let choice = prompt(
+    "What do you pick? Rock, paper, or scissors?"
+  ).toLowerCase();
+  if (choice === "paper") {
+    return "Paper";
+  } else if (choice === "rock") {
+    return "Rock";
+  } else if (choice === "scissors") {
+    return "Scissors";
+  } else {
+    alert("Invalid choice!");
+    getHumanChoice();
+  }
+}
+
+getHumanChoice();
