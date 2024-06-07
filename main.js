@@ -1,58 +1,43 @@
-function getComputerChoice() {
-  let computerChoice = Math.floor(Math.random() * 3);
-  if (computerChoice === 1) {
-    return "Rock";
-  } else if (computerChoice === 2) {
-    return "Paper";
-  } else {
-    return "Scissors";
-  }
-}
-
-function getHumanChoice() {
-  let choice = prompt(
-    "What do you pick? Rock, paper, or scissors?"
-  ).toLowerCase();
-  if (choice === "paper") {
-    return "Paper";
-  } else if (choice === "rock") {
-    return "Rock";
-  } else if (choice === "scissors") {
-    return "Scissors";
-  } else {
-    alert("Invalid choice!");
-    getHumanChoice();
-  }
-}
-
-function playGame() {
+function main() {
   let humanScore = 0;
   let computerScore = 0;
+  let winScore = 5;
   const rock = document.querySelector("#rock");
   const paper = document.querySelector("#paper");
   const scissors = document.querySelector("#scissors");
   const results = document.querySelector(".results");
   results.setAttribute("style", "white-space: pre;");
 
+  function getComputerChoice() {
+    let computerChoice = Math.floor(Math.random() * 3);
+    if (computerChoice === 1) {
+      return "Rock";
+    } else if (computerChoice === 2) {
+      return "Paper";
+    } else {
+      return "Scissors";
+    }
+  }
+
   rock.addEventListener("click", function () {
     let humanChoice = "Rock";
     let computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
-    console.log(humanScore, computerScore);
+    winCondition();
   });
 
   paper.addEventListener("click", function () {
     let humanChoice = "Paper";
     let computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
-    console.log(humanScore, computerScore);
+    winCondition();
   });
 
   scissors.addEventListener("click", function () {
     let humanChoice = "Scissors";
     let computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
-    console.log(humanScore, computerScore);
+    winCondition();
   });
 
   function playRound(humanChoice, computerChoice) {
@@ -82,6 +67,22 @@ function playGame() {
       results.textContent = `Computer chose Scissors. It's a draw!\r\nScore: Human ${humanScore}, Computer ${computerScore}`;
     }
   }
+
+  function winCondition() {
+    if (humanScore === winScore) {
+      const humanWin = document.createTextNode("\r\nHuman wins!");
+      results.appendChild(humanWin);
+      document.body.removeChild(rock);
+      document.body.removeChild(paper);
+      document.body.removeChild(scissors);
+    } else if (computerScore === winScore) {
+      const computerWin = document.createTextNode("\r\nComputer wins!");
+      results.appendChild(computerWin);
+      document.body.removeChild(rock);
+      document.body.removeChild(paper);
+      document.body.removeChild(scissors);
+    }
+  }
 }
 
-playGame();
+main();
