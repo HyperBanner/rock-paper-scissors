@@ -32,6 +32,7 @@ function playGame() {
   const paper = document.querySelector("#paper");
   const scissors = document.querySelector("#scissors");
   const results = document.querySelector(".results");
+  results.setAttribute("style", "white-space: pre;");
 
   rock.addEventListener("click", function () {
     let humanChoice = "Rock";
@@ -56,35 +57,29 @@ function playGame() {
 
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === "Rock" && computerChoice === "Rock") {
-      results.textContent = "Computer chose Rock. It's a draw!";
+      results.textContent = `Computer chose Rock. It's a draw!\r\nScore: Human ${humanScore}, Computer ${computerScore}`;
     } else if (humanChoice === "Rock" && computerChoice === "Paper") {
-      results.textContent =
-        "Computer chose Paper. Paper beats Rock, computer wins!";
       computerScore++;
+      results.textContent = `Computer chose Paper. Paper beats Rock, computer wins!\r\nScore: Human ${humanScore}, Computer ${computerScore}`;
     } else if (humanChoice === "Rock" && computerChoice === "Scissors") {
-      results.textContent =
-        "Computer chose Scissors. Rock beats Scissors, human wins!";
       humanScore++;
+      results.textContent = `Computer chose Scissors. Rock beats Scissors, human wins!\r\nScore: Human ${humanScore}, Computer ${computerScore}`;
     } else if (humanChoice === "Paper" && computerChoice === "Rock") {
-      results.textContent =
-        "Computer chose Rock. Paper beats Rock, human wins!";
       humanScore++;
+      results.textContent = `Computer chose Rock. Paper beats Rock, human wins!\r\nScore: Human ${humanScore}, Computer ${computerScore}`;
     } else if (humanChoice === "Paper" && computerChoice === "Paper") {
-      results.textContent = "Computer chose Paper. It's a draw!";
+      results.textContent = `Computer chose Paper. It's a draw!\r\nScore: Human ${humanScore}, Computer ${computerScore}`;
     } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
-      results.textContent =
-        "Computer chose Scissors. Scissors beats Paper, computer wins!";
       computerScore++;
+      results.textContent = `Computer chose Scissors. Scissors beats Paper, computer wins!\r\nScore: Human ${humanScore}, Computer ${computerScore}`;
     } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
-      results.textContent =
-        "Computer chose Rock. Rock beats Scissors, computer wins!";
       computerScore++;
+      results.textContent = `Computer chose Rock. Rock beats Scissors, computer wins!\r\nScore: Human ${humanScore}, Computer ${computerScore}`;
     } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
-      results.textContent =
-        "Computer chose Paper. Scissors beats Paper, human wins!";
       humanScore++;
+      results.textContent = `Computer chose Paper. Scissors beats Paper, human wins!\r\nScore: Human ${humanScore}, Computer ${computerScore}`;
     } else if (humanChoice === "Scissors" && computerChoice === "Scissors") {
-      results.textContent = "Computer chose Scissors. It's a draw!";
+      results.textContent = `Computer chose Scissors. It's a draw!\r\nScore: Human ${humanScore}, Computer ${computerScore}`;
     }
   }
 }
