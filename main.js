@@ -28,6 +28,30 @@ function getHumanChoice() {
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
+  const rock = document.querySelector("#rock");
+  const paper = document.querySelector("#paper");
+  const scissors = document.querySelector("#scissors");
+
+  rock.addEventListener("click", function () {
+    let humanChoice = "Rock";
+    let computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+    console.log(humanScore, computerScore);
+  });
+
+  paper.addEventListener("click", function () {
+    let humanChoice = "Paper";
+    let computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+    console.log(humanScore, computerScore);
+  });
+
+  scissors.addEventListener("click", function () {
+    let humanChoice = "Scissors";
+    let computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+    console.log(humanScore, computerScore);
+  });
 
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === "Rock" && computerChoice === "Rock") {
@@ -55,21 +79,6 @@ function playGame() {
     } else if (humanChoice === "Scissors" && computerChoice === "Scissors") {
       alert("Computer chose Scissors. It's a draw!");
     }
-  }
-
-  for (let i = 0; i < 5; i++) {
-    playRound(getHumanChoice(), getComputerChoice());
-    console.log(
-      `Current scores: ${humanScore} for human, ${computerScore} for computer.`
-    );
-  }
-
-  if (humanScore > computerScore) {
-    console.log("Human wins!");
-  } else if (humanScore < computerScore) {
-    console.log("Computer wins!");
-  } else {
-    console.log("No one wins!");
   }
 }
 
