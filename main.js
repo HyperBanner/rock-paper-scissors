@@ -6,6 +6,7 @@ function main() {
   const paper = document.querySelector("#paper");
   const scissors = document.querySelector("#scissors");
   const results = document.querySelector(".results");
+  const buttons = document.querySelector(".buttons");
   results.setAttribute("style", "white-space: pre;");
 
   function getComputerChoice() {
@@ -72,15 +73,15 @@ function main() {
     if (humanScore === winScore) {
       const humanWin = document.createTextNode("\r\nHuman wins!");
       results.appendChild(humanWin);
-      document.body.removeChild(rock);
-      document.body.removeChild(paper);
-      document.body.removeChild(scissors);
+      buttons.removeChild(rock);
+      buttons.removeChild(paper);
+      buttons.removeChild(scissors);
     } else if (computerScore === winScore) {
       const computerWin = document.createTextNode("\r\nComputer wins!");
       results.appendChild(computerWin);
-      document.body.removeChild(rock);
-      document.body.removeChild(paper);
-      document.body.removeChild(scissors);
+      buttons.removeChild(rock);
+      buttons.removeChild(paper);
+      buttons.removeChild(scissors);
     }
   }
 }

@@ -13,4 +13,40 @@ html,
 body {
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #1f2335;
+  color: #c0caf5;
+}
+
+button {
+  background-color: #7dcfff;
+  border: none;
+  padding: 8px 50px;
+  border-radius: 12px;
+  color: #3d59a1;
+}
+
+.results {
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background-color: #24283b;
+  padding: 32px;
+  border-radius: 12px;
+  width: 600px;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  justify-content: space-evenly;
 }
