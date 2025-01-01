@@ -1,7 +1,7 @@
 "use strict";
 
-let humanScore = 0;
-let computerScore = 0;
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
 
 function getComputerChoice() {
   let choices = ["rock", "paper", "scissors"];
@@ -26,35 +26,63 @@ function getHumanChoice() {
   }
 }
 
-function playRound(humanChoice, computerChoice) {
-  if (humanChoice === "rock" && computerChoice === "rock") {
-    console.log("It's a draw! Rock vs Rock");
-  } else if (humanChoice === "rock" && computerChoice === "paper") {
-    console.log("You lose! Paper beats Rock.");
-    computerScore++;
-  } else if (humanChoice === "rock" && computerChoice === "scissors") {
-    console.log("You win! Rock beats Scissors");
-    humanScore++;
-  } else if (humanChoice === "paper" && computerChoice === "rock") {
-    console.log("You win! Paper beats Rock!");
-    humanScore++;
-  } else if (humanChoice === "paper" && computerChoice === "paper") {
-    console.log("It's a draw! Paper vs Paper");
-  } else if (humanChoice === "paper" && computerChoice === "scissors") {
-    console.log("You lose! Scissors beat Paper.");
-    computerScore++;
-  } else if (humanChoice === "scissors" && computerChoice === "rock") {
-    console.log("You lose! Rock beats Paper.");
-    computerScore++;
-  } else if (humanChoice === "scissors" && computerChoice === "paper") {
-    console.log("You win! Scissors beat Paper.");
-    humanScore++;
+function playGame(number) {
+  let humanScore = 0;
+  let computerScore = 0;
+
+  function playRound(humanChoice, computerChoice) {
+    if (humanChoice === "rock" && computerChoice === "rock") {
+      console.log("It's a draw! Rock vs Rock");
+      console.log(`Scores: You: ${humanScore} Computer: ${computerScore}`);
+    } else if (humanChoice === "rock" && computerChoice === "paper") {
+      console.log("You lose! Paper beats Rock.");
+      computerScore++;
+      console.log(`Scores: You: ${humanScore} Computer: ${computerScore}`);
+    } else if (humanChoice === "rock" && computerChoice === "scissors") {
+      console.log("You win! Rock beats Scissors");
+      humanScore++;
+      console.log(`Scores: You: ${humanScore} Computer: ${computerScore}`);
+    } else if (humanChoice === "paper" && computerChoice === "rock") {
+      console.log("You win! Paper beats Rock!");
+      humanScore++;
+      console.log(`Scores: You: ${humanScore} Computer: ${computerScore}`);
+    } else if (humanChoice === "paper" && computerChoice === "paper") {
+      console.log("It's a draw! Paper vs Paper");
+      console.log(`Scores: You: ${humanScore} Computer: ${computerScore}`);
+    } else if (humanChoice === "paper" && computerChoice === "scissors") {
+      console.log("You lose! Scissors beat Paper.");
+      computerScore++;
+      console.log(`Scores: You: ${humanScore} Computer: ${computerScore}`);
+    } else if (humanChoice === "scissors" && computerChoice === "rock") {
+      console.log("You lose! Rock beats Paper.");
+      computerScore++;
+      console.log(`Scores: You: ${humanScore} Computer: ${computerScore}`);
+    } else if (humanChoice === "scissors" && computerChoice === "paper") {
+      console.log("You win! Scissors beat Paper.");
+      humanScore++;
+      console.log(`Scores: You: ${humanScore} Computer: ${computerScore}`);
+    } else {
+      console.log("It's a draw! Scissors vs Scissors");
+      console.log(`Scores: You: ${humanScore} Computer: ${computerScore}`);
+    }
+  }
+
+  for (let i = 1; i < number; i++) {
+    playRound(humanSelection, computerSelection);
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+  }
+
+  if (humanScore > computerScore) {
+    console.log("You won!");
+    console.log(`Final Scores: You: ${humanScore} Computer: ${computerScore}`);
+  } else if (humanScore < computerScore) {
+    console.log("You lost!");
+    console.log(`Final Scores: You: ${humanScore} Computer: ${computerScore}`);
   } else {
-    console.log("It's a draw! Scissors vs Scissors");
+    console.log("Nobody wins!");
+    console.log(`Final Scores: You: ${humanScore} Computer: ${computerScore}`);
   }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
+playGame(5);
