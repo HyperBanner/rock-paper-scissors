@@ -12,26 +12,8 @@ body {
   flex-direction: column;
   height: 100vh;
   align-items: center;
-  background-color: #c4d7ff;
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  width: 70vw;
-  height: 100vh;
-  align-items: center;
   justify-content: center;
-  background-color: #a4c1ff;
-  padding: 0 3em;
-  border-radius: 0.5em;
-  border: 6px dashed #7499ff;
-}
-
-.buttons {
-  display: flex;
-  width: 100%;
-  gap: 3em;
+  background-color: #c4d7ff;
 }
 
 button {
@@ -49,4 +31,33 @@ button {
 button:hover {
   background-color: hsl(224, 100%, 68%);
   cursor: pointer;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  height: 80vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #a4c1ff;
+  padding: 0 3em;
+  border-radius: 0.5em;
+  border: 6px dashed #7499ff;
+  gap: 5rem;
+}
+
+.buttons {
+  display: flex;
+  width: 100%;
+  gap: 3em;
+}
+
+.score {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
 }
