@@ -1,8 +1,5 @@
 "use strict";
 
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
-
 function getComputerChoice() {
   let choices = ["rock", "paper", "scissors"];
   return choices[Math.floor(Math.random() * choices.length)];
@@ -27,6 +24,8 @@ function getHumanChoice() {
 }
 
 function playGame(number) {
+  let humanSelection = getHumanChoice();
+  let computerSelection = getComputerChoice();
   let humanScore = 0;
   let computerScore = 0;
 
@@ -67,12 +66,6 @@ function playGame(number) {
     }
   }
 
-  for (let i = 1; i < number; i++) {
-    playRound(humanSelection, computerSelection);
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-  }
-
   if (humanScore > computerScore) {
     console.log("You won!");
     console.log(`Final Scores: You: ${humanScore} Computer: ${computerScore}`);
@@ -84,5 +77,3 @@ function playGame(number) {
     console.log(`Final Scores: You: ${humanScore} Computer: ${computerScore}`);
   }
 }
-
-playGame(5);
